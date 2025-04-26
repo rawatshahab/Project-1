@@ -23,6 +23,7 @@ export const getAllTasks = async (req: Request, res: Response) => {
       .skip((+page - 1) * +limit)
       .limit(+limit)
       .sort({ createdAt: -1 });
+       
 
     const total = await Task.countDocuments(filter);
     const totalPages = Math.ceil(total / +limit);
